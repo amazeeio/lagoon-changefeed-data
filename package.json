@@ -1,0 +1,15 @@
+{
+    "name": "lagoon-changelog-data",
+    "version": "1.0.0",
+    "description": "Centralized repo for Lagoon changelog data",
+    "main": "index.js",
+    "scripts": {
+        "validate": "ajv validate -s changelog.schema.json -d changelog.json"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "ajv-cli": "^5.0.0"
+    }
+}

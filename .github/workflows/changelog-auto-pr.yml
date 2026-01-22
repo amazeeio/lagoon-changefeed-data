@@ -1,0 +1,52 @@
+name: Auto Create PR for ChangeLog Updates
+
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+    paths:
+      - 'changelog.json'
+
+jobs:
+  validate-and-create-pr:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Validate ChangeLog Data
+        run: npm run validate
+      
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}
+          base: main
+          title: "Update ChangeLog"
+          body: |
+            ## ChangeLog Update
+            
+            This PR updates the changelog data.
+            
+            ### Changes
+            - Updated `changelog.json`
+            
+            ### Validation
+            JSON schema validation passed
+            
+            ---
+            _This PR was automatically created by the changelog update workflow._
