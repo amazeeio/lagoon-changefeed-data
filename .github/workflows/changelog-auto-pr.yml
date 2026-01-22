@@ -31,22 +31,40 @@ jobs:
       
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref_name }}
-          base: main
-          title: "Update ChangeLog"
-          body: |
-            ## ChangeLog Update
-            
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXISTING_PR=$(gh pr list --head "${{ github.ref_name }}" --base main --json number --jq '.[0].number')
+          
+          if [ -n "$EXISTING_PR" ]; then
+            echo "PR already exists: #$EXISTING_PR"
+            echo "pr-number=$EXISTING_PR" >> $GITHUB_OUTPUT
+            echo "pr-url=https://github.com/${{ github.repository }}/pull/$EXISTING_PR" >> $GITHUB_OUTPUT
+          else
+            PR_URL=$(gh pr create \
+              --base main \
+              --head "${{ github.ref_name }}" \
+              --title "Update ChangeLog" \
+              --body "## ChangeLog Update
+
             This PR updates the changelog data.
-            
+
             ### Changes
-            - Updated `changelog.json`
-            
+            - Updated \`changelog.json\`
+
             ### Validation
             JSON schema validation passed
-            
+
             ---
-            _This PR was automatically created by the changelog update workflow._
+            _This PR was automatically created by the changelog update workflow._")
+            
+            PR_NUMBER=$(echo "$PR_URL" | grep -oP '\d+$')
+            echo "Created PR: $PR_URL"
+            echo "pr-number=$PR_NUMBER" >> $GITHUB_OUTPUT
+            echo "pr-url=$PR_URL" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Output PR Info
+        if: steps.cpr.outputs.pr-number
+        run: |
+          echo "Pull Request #${{ steps.cpr.outputs.pr-number }} - ${{ steps.cpr.outputs.pr-url }}"
