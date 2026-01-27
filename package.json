@@ -1,10 +1,10 @@
 {
-    "name": "lagoon-changelog-data",
+    "name": "lagoon-changefeed-data",
     "version": "1.0.0",
-    "description": "Centralized repo for Lagoon changelog data",
+    "description": "Centralized repo for Lagoon changefeed data",
     "main": "index.js",
     "scripts": {
-        "validate": "ajv validate -s changelog.schema.json -d changelog.json"
+        "validate": "ajv validate -s changefeed.schema.json -d changefeed.json"
     },
     "keywords": [],
     "author": "",
