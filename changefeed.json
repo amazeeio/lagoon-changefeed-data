@@ -1,3 +1,13 @@
 {
-    "changes": []
+    "changes": [
+        {
+            "id": "1",
+            "date": "JANUARY 28 2026",
+            "title": "Introducing the Changefeed Component",
+            "description": "A new changefeed and activity feed component is now available in the UI library.",
+            "tags": [
+                "UI/UX"
+            ]
+        }
+    ]
 }
