@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Changelog Data",
+    "title": "Change Feed Data",
     "type": "object",
     "required": [
         "changes"
@@ -32,12 +32,12 @@
                         "type": "string",
                         "minLength": 10,
                         "maxLength": 200,
-                        "description": "Changelog item title"
+                        "description": "Change feed item title"
                     },
                     "description": {
                         "type": "string",
                         "maxLength": 2000,
-                        "description": "Description of the changelog item"
+                        "description": "Description of the change feed item"
                     },
                     "tags": {
                         "type": "array",
@@ -46,7 +46,7 @@
                         },
                         "minItems": 1,
                         "maxItems": 5,
-                        "description": "Optional tags for the changelog item"
+                        "description": "Optional tags for the change feed item"
                     }
                 }
             }

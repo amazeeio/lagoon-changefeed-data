@@ -1,4 +1,4 @@
-name: Changelog validation & CI
+name: ChangeFeed validation & CI
 
 on:
   push:
@@ -20,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate ChangeLog Strings
+      - name: Validate ChangeFeed Data
         run: npm run validate
