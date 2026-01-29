@@ -1,3 +1,11 @@
 {
-    "changes": []
+    "changes": [
+        {
+            "id": "lagoon-2.28.0",
+            "date": "JANUARY 28 2025",
+            "title": "Lagoon 2.28.0 - Harbor 2.13.x Support & Configuration Cleanup",
+            "description": "Lagoon now supports Harbor version 2.13.x, keeping you current with the latest container registry features. This release also cleans up legacy configuration—the internal_container_registry variable has been removed from the API and database as part of ongoing Harbor deprecation work. Heads up: the QoS-related Helm values (lagoonFeatureFlagEnableQoS, QoSMaxBuilds, QoSDefault) are being phased out. They still work for now, but check out the new options in the lagoon-build-deploy chart before the next release.",
+            "tags": ["harbor", "container-registry", "deprecation", "configuration"]
+        }
+    ]
 }
