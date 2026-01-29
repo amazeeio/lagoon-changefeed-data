@@ -12,10 +12,10 @@
         {
             "id": "1",
             "date": "JANUARY 30 2026",
-            "title": "Test Feed",
+            "title": "Test Feed Title",
             "description": "A new changefeed and activity feed component is now available in the UI library.",
             "tags": [
-                "UI/UX New Test"
+                "UI/UX, New, Test"
             ]
         }
     ]
