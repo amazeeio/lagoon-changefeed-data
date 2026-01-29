@@ -1,3 +1,11 @@
 {
-    "changes": []
+    "changes": [
+        {
+            "id": "lagoon-2.27.0",
+            "date": "JANUARY 15 2025",
+            "title": "Lagoon 2.27.0 - Retention Policies & Smarter Build Queues",
+            "description": "This release brings retention policies to help manage your project data lifecycle, giving platform owners more control over cleanup automation. We've also upgraded the AWS S3 library—if you're using AWS buckets, you may need to set your region in the helm values. New installations now benefit from a streamlined setup process with initial platform-owner and organization configuration. On the build side, the remote-controller now handles queues more efficiently by letting completed builds move to a secondary queue, so new builds aren't stuck waiting behind long-running tasks.",
+            "tags": ["retention-policies", "build-queue", "aws-s3", "platform-setup", "performance"]
+        }
+    ]
 }
