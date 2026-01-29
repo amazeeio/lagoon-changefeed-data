@@ -5,14 +5,14 @@
             "date": "JANUARY 2025",
             "title": "Lagoon 2.30.0 - External Database Support & Beta UI",
             "description": "This release introduces support for external database servers for API and Keycloak databases, giving platform operators more flexibility in their infrastructure setup. A new beta UI is now available for preview—disabled by default but can be enabled via Helm values. Note: Bitbucket sync and Open Distro integrations have been fully removed following their deprecation in 2.29.0.",
-            "tags": ["external-database", "beta-ui", "keycloak", "deprecation-removal"]
+            "tags": ["external-database", "beta-ui", "keycloak", "deprecation"]
         },
         {
             "id": "lagoon-2.29.x",
             "date": "JANUARY 2025",
             "title": "Lagoon 2.29.x - Deprecation Notices & UI Sunset",
             "description": "The 2.29 series marks the end of development for the current UI, with focus shifting to the new beta interface. Bitbucket and Open Distro sync scripts are deprecated and will be removed in the next major release—users should migrate to lagoon-opensearch-sync. Version 2.29.2 is the recommended release, as it fixes MariaDB client issues that caused API errors when accessing environment storage data.",
-            "tags": ["ui-deprecation", "opensearch", "mariadb", "maintenance"]
+            "tags": ["deprecation", "opensearch", "mariadb", "maintenance"]
         },
         {
             "id": "lagoon-2.28.0",
