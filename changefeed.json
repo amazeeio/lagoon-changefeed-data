@@ -2,10 +2,12 @@
     "changes": [
         {
             "id": "coming-soon",
-            "date": "",
+            "date": "JANUARY 30 2026",
             "title": "Coming Soon",
             "description": "New changelog entries will be added here.",
-            "tags": []
+            "tags": [
+                "coming-soon"
+            ]
         }
     ]
 }
